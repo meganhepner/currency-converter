@@ -28,22 +28,22 @@ function converterUSD(inputAmount, convertTo, response) {
   }
 }
 
-converterOther(inputAmount, convertFrom, response) {
+function converterOther(inputAmount, convertFrom, response) {
   let conversion;
   if (response) {
     if (convertFrom === "EUR") {
       conversion = (inputAmount * response.conversion_rates.EUR); 
       return conversion.toFixed(2);
-    } else if (convertTo === "AUD") {
+    } else if (convertFrom === "AUD") {
       conversion = (inputAmount * response.conversion_rates.AUD); 
       return conversion.toFixed(2);
-    } else if (convertTo === "CAD") {
+    } else if (convertFrom === "CAD") {
       conversion = (inputAmount * response.conversion_rates.CAD); 
       return conversion.toFixed(2);
-    } else if (convertTo === "MXN") {
+    } else if (convertFrom === "MXN") {
       conversion = (inputAmount * response.conversion_rates.MXN); 
       return conversion.toFixed(2);
-    } else if (convertTo === "JPY") {
+    } else if (convertFrom === "JPY") {
       conversion = (inputAmount * response.conversion_rates.JPY); 
       return conversion.toFixed(2);
     } 
@@ -59,13 +59,12 @@ $(document).ready(function () {
     let convertTo = $("#selectCurrency").val();
     (async () => {
       let currencyExchange = new CurrencyExchange();
-      const response = await currencyExchange.conversionRateUSD();
-      console.log(response);
+      let response = await currencyExchange.conversionRateUSD();
       if (!response.result) {
         $('.convertedCurrency').text(`${response}`);
       } else {
-      let conversion = converterUSD(inputAmount, convertTo, response);
-      $('.convertedCurrency').text(`${inputAmount} USD is worth ${conversion} in ${convertTo}`);
+        let conversion = converterUSD(inputAmount, convertTo, response);
+        $('.convertedCurrency').text(`${inputAmount} USD is worth ${conversion} in ${convertTo}`);
       } 
     })();
   });
@@ -73,16 +72,15 @@ $(document).ready(function () {
   $('form#USDtoOther').submit(function(event){
     event.preventDefault();
     let inputAmount = $("input#amount").val();
-    let convertFrom = $("#selectCurrency").val();
+    let convertTo = $("#selectCurrency").val();
     (async () => {
       let currencyExchange = new CurrencyExchange();
-      const response = await currencyExchange.conversionRateUSD();
-      console.log(response);
+      let response = await currencyExchange.conversionRateUSD();
       if (!response.result) {
         $('.convertedCurrency').text(`${response}`);
       } else {
-      let conversion = converterOther(inputAmount, convertFrom, response);
-      $('.currencyToUSD').text(`${inputAmount} USD is worth ${conversion} in ${convertTo} USD`);
+        let conversion = converterOther(inputAmount, convertTo, response);
+        $('.currencyToUSD').text(`${inputAmount} USD is worth ${conversion} in ${convertTo} USD`);
       } 
     })();
   });
