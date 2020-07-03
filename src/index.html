@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Currency Exchange</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="jumbotron">Currency Exchange</h1>
+      <form id="toUSDConverter">
+        <div class="row">
+          <div class="col-med-6">
+            <div class="form-group">
+              <label for="amount">Enter amount to convert in U.S. Dollars</label>
+              <input type="text" class="form-control" id="amount">
+            </div>
+          </div>
+          <div class="col-med-6">
+            <div class="form-group">
+              <label for="selectCurrency">Convert to this currency</label>
+              <select class="form-control" id="selectCurrency">
+                <option value="EUR">Euro</option>
+                <option value="AUD">Australian Dollar</option>
+                <option value="CAD">Canadian Dollar</option>
+                <option value="MXN">Mexican Peso</option>
+                <option value="JPY">Japanese Yen</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <span class="convertedCurrency"></span>
+      <form id="USDtoOther">
+        <div class="row">
+          <div class="col-med-6">
+            <div class="form-group">
+              <label for="selectCurrency">Which currency are you converting from</label>
+              <select class="form-control" id="selectCurrency">
+                <option value="EUR">Euro</option>
+                <option value="AUD">Australian Dollar</option>
+                <option value="CAD">Canadian Dollar</option>
+                <option value="MXN">Mexican Peso</option>
+                <option value="JPY">Japanese Yen</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-med-6">
+            <div class="form-group">
+              <label for="amount">Enter amount to convert to U.S. Dollars</label>
+              <input type="text" class="form-control" id="amount">
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <span class="currencyToUSD"></span>
+    </div>
+  </body>
+</html>
