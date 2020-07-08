@@ -32,19 +32,19 @@ function converterOther(inputAmount, convertFrom, response) {
   let conversion;
   if (response) {
     if (convertFrom === "EUR") {
-      conversion = (inputAmount * response.conversion_rates.EUR); 
+      conversion = (inputAmount * (1/response.conversion_rates.EUR)); 
       return conversion.toFixed(2);
     } else if (convertFrom === "AUD") {
-      conversion = (inputAmount * response.conversion_rates.AUD); 
+      conversion = (inputAmount * (1/response.conversion_rates.AUD)); 
       return conversion.toFixed(2);
     } else if (convertFrom === "CAD") {
-      conversion = (inputAmount * response.conversion_rates.CAD); 
+      conversion = (inputAmount * (1/response.conversion_rates.CAD)); 
       return conversion.toFixed(2);
     } else if (convertFrom === "MXN") {
-      conversion = (inputAmount * response.conversion_rates.MXN); 
+      conversion = (inputAmount * (1/response.conversion_rates.MXN)); 
       return conversion.toFixed(2);
     } else if (convertFrom === "JPY") {
-      conversion = (inputAmount * response.conversion_rates.JPY); 
+      conversion = (inputAmount * (1/response.conversion_rates.JPY)); 
       return conversion.toFixed(2);
     } 
   } else {
@@ -80,7 +80,7 @@ $(document).ready(function () {
         $('.convertedCurrency').text(`${response}`);
       } else {
         let conversion = converterOther(inputAmount, convertTo, response);
-        $('.currencyToUSD').text(`${inputAmount} USD is worth ${conversion} in ${convertTo} USD`);
+        $('.currencyToUSD').text(`${inputAmount} in ${convertTo} is ${conversion} USD`);
       } 
     })();
   });

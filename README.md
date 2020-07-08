@@ -46,3 +46,7 @@ Html, CSS, Bootstrap, JavaScript, JQuery
 *This software is licensed under the MIT license*
 
 Copyright (c) 2020 **_Megan Hepner_**
+
+![Git Log #3](./images/commit-3.PNG)
+![Git Log #1](./images/commit-2.PNG)
+![Git Log #2](./images/commit-1.PNG)
